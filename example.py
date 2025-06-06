@@ -6,6 +6,10 @@ import os
 import warnings
 import sys
 
+
+import dagshub
+dagshub.init(repo_owner='AntuKhan33', repo_name='bappy', mlflow=True)
+
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
@@ -27,6 +31,9 @@ def eval_metrics(actual, pred):
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
+
+
+
 
 
 if __name__ == "__main__":
@@ -82,8 +89,8 @@ if __name__ == "__main__":
 
 
         # For remote server only (AWS)
-        remote_server_uri = "http://ec2-54-147-36-34.compute-1.amazonaws.com:5000/"
-        mlflow.set_tracking_uri(remote_server_uri)
+        # remote_server_uri = "http://ec2-54-147-36-34.compute-1.amazonaws.com:5000/"
+        # mlflow.set_tracking_uri(remote_server_uri)
 
 
 
